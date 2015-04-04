@@ -214,9 +214,10 @@ public class AppetizeRecorder extends Recorder {
         logger.println("You can view your app at " + result.publicURL);
         logger.println("You can manage your app at " + result.manageURL);
 
-        // add action to build
+        // add actions to build
         build.addAction(new AppetizeBuildAction(platform, result.privateKey, result.publicKey,
                 result.publicURL, result.manageURL, build.getNumber()));
+        build.addAction(new AppetizeEnvironmentContributingAction(result.publicURL, result.manageURL));
 
         return true;
     }
